@@ -20,7 +20,9 @@ date_format: "%a, %b %d, %Y"
 
 # Build settings
 markdown: kramdown
-theme: jekyll-bootstrap
+
+remote_theme: llorephie/jekyll-bootstrap
+
 exclude:
   - Gemfile
   - Gemfile.lock

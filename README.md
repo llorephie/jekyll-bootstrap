@@ -21,6 +21,13 @@ And add this line to your Jekyll site's `_config.yml`:
 theme: jekyll-bootstrap
 ```
 
+or
+
+```yaml
+remote_theme: llorephie/jekyll-bootstrap
+```
+For use it on GitHub Pages.
+
 And then execute:
 
     $ bundle
