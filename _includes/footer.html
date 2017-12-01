@@ -1,3 +1,16 @@
 <footer class="container footer">
     <hr>
+    <div class="row">
+        <div class="col">
+            <details>
+                <summary class="text-muted">&copy; {{ site.author }} {{ site.time | date: '%Y' }}</summary>
+                <p>Author: {{ site.author }} &lt;<a href="mailto:{{ site.email }}">{{ site.email }}</a>&gt;</p>
+                <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license">Content available under Creative Commons CC-BY-SA 4.0</a></p>
+            </details>
+            <p>Subscribe to latest publications on this website <a class="text-warning" href="{{ "/feed.xml" | relative_url }}" rel="alternate">via RSS</a></p>
+        </div>
+        <div class="col">
+            <p class="text-muted">{{ site.description }}</p>
+        </div>
+    </div>
 </footer>

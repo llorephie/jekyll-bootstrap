@@ -1,5 +1,15 @@
 ---
 # Only the main Sass file needs front matter (the dashes are enough)
 ---
-
-@import "jekyll-bootstrap";
+@import "bootstrap";
+@import "syntax_highlight";
+table {
+  @extend .table;
+}
+blockquote {
+  @extend .blockquote;
+}
+.footer {
+    padding-top: 1rem;
+    min-height: 10rem;
+}

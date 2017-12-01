@@ -1,59 +1,71 @@
 ---
 layout: default
 ---
-<main class="container pt-5">
-    <section>
-        {% if paginator %}
-            {% for post in paginator.posts %}
-            <article>
-                {% assign date_format = site.date_format | default: "%b %-d, %Y" %}
-                <h2><a class="text-secondary" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h2>
-                <span class="lead">Publish date: {{ post.date | date: date_format }} &middot; Author: {{ post.author }} &middot; Categories: {{ post.categories }}</span>
-                {{ post.excerpt }}
-                <a class="btn btn-info float-right" href="{{ post.url | relative_url }}">Read more</a>
-            </article>
-            {% endfor %}
-            {% if paginator.total_pages > 1 %}
-            <nav aria-label="Page navigation">
-                <ul class="pagination justify-content-center">
-                {% if paginator.next_page %}
-                    <li class="page-item">
-                        <a class="page-link" href="{{ paginator.next_page_path | prepend: site.baseurl }}">&laquo; Newer posts</a>
-                    </li>
-                    {% else %}
-                    <li class="page-item">
-                        <span class="page-link disabled">&laquo; Newer posts</span>
-                    </li>
-                {% endif %}
-                {% if paginator.page_trail %}
-                    {% for trail in paginator.page_trail %}
-                    <li class="page-item {% if page.url == trail.path %}active{% endif %}">
-                        <a class="page-link" href="{{ trail.path | prepend: site.baseurl }}" title="{{trail.title}}">{{ trail.num }}</a>
-                    </li>
+<div class="container pt-5">
+    <div class="row">
+        <main class="col-9">
+            <section>
+                <h3>Articles</h3>
+                {% if paginator %}
+                    {% for post in paginator.posts %}
+                    <article>
+                        {% assign date_format = site.date_format | default: "%b %-d, %Y" %}
+                        <h2><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h2>
+                        <span class="lead">Publish date: {{ post.date | date: date_format }} &middot; Author: {{ post.author }} &middot; Categories: {{ post.categories }}</span>
+                        <p>{{ post.excerpt }}</p>
+                        <a class="btn btn-info float-right" href="{{ post.url | relative_url }}">Read more</a>
+                    </article>
+                    <hr>
                     {% endfor %}
+                    {% if paginator.total_pages > 1 %}
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination justify-content-center">
+                        {% if paginator.next_page %}
+                            <li class="page-item">
+                                <a class="page-link" href="{{ paginator.next_page_path | prepend: site.baseurl }}">&laquo; Newer posts</a>
+                            </li>
+                            {% else %}
+                            <li class="page-item">
+                                <span class="page-link disabled">&laquo; Newer posts</span>
+                            </li>
+                        {% endif %}
+                        {% if paginator.page_trail %}
+                            {% for trail in paginator.page_trail %}
+                            <li class="page-item {% if page.url == trail.path %}active{% endif %}">
+                                <a class="page-link" href="{{ trail.path | prepend: site.baseurl }}" title="{{trail.title}}">{{ trail.num }}</a>
+                            </li>
+                            {% endfor %}
+                        {% endif %}
+                        {% if paginator.previous_page %}
+                            <li class="page-item">
+                                <a class="page-link" href="{{ paginator.previous_page_path | prepend: site.baseurl }}">Later posts &raquo;</a>
+                            </li>
+                            {% else %}
+                            <li class="page-item">
+                                <span class="page-link disabled">Later posts &raquo;</span>
+                            </li>
+                        {% endif %}
+                        </ul>
+                    {% endif %}
+                    </nav>
+                {% else %}
+                    {% for post in site.posts %}
+                    <article>
+                        {% assign date_format = site.date_format | default: "%b %-d, %Y" %}
+                        <h2><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h2>
+                        <span class="lead">Publish date: {{ post.date | date: date_format }}{% if post.author %} &middot; Author: {{ post.author }}{% endif %}{% if post.categories %} &middot; Categories: {{ post.categories }}{% endif %}</span>
+                        {{ post.excerpt }}
+                        <a class="btn btn-outline-primary btn-lg btn-block" href="{{ post.url | relative_url }}">Read more</a>
+                    </article>
+                    <hr>
+                    {% endfor %}
+                    <p>No more posts available now on this website :)<p>
                 {% endif %}
-                {% if paginator.previous_page %}
-                    <li class="page-item">
-                        <a class="page-link" href="{{ paginator.previous_page_path | prepend: site.baseurl }}">Later posts &raquo;</a>
-                    </li>
-                    {% else %}
-                    <li class="page-item">
-                        <span class="page-link disabled">Later posts &raquo;</span>
-                    </li>
-                {% endif %}
-                </ul>
-            {% endif %}
-            </nav>
-        {% else %}
-            {% for post in site.posts %}
-            <article>
-                {% assign date_format = site.date_format | default: "%b %-d, %Y" %}
-                <h2><a class="text-secondary" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h2>
-                <span class="lead">Publish date: {{ post.date | date: date_format }} &middot; Author: {{ post.author }} &middot; Categories: {{ post.categories }}</span>
-                {{ post.excerpt }}
-                <a class="btn btn-default float-right" href="{{ post.url | relative_url }}">Read more</a>
-            </article>
-            {% endfor %}
-        {% endif %}
-    </section>
-</main>
+            </section>
+        </main>
+        <section class="col-3">
+            <h3>About</h3>
+            <p>{{ site.description }}</p>
+        </section>
+    </div>
+</div>
