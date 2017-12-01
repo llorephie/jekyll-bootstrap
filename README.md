@@ -1,8 +1,11 @@
 # jekyll-bootstrap
 
-Welcome to your new Jekyll theme! In this directory, you'll find the files you need to be able to package up your theme into a gem. Put your layouts in `_layouts`, your includes in `_includes` and your sass in `_sass`. To experiment with this code, add some sample content and run `bundle exec jekyll serve` – this directory is setup just like a Jekyll site!
+Bootstrap theme gem for Jekyll. Complains latest W3C recomendations, if you not sure in this - feel free to create issue with your opinion.
 
-TODO: Delete this and the text above, and describe your gem
+### Versioning
+
+This gem version will always point to latest version of Bootstrap + dot-separated version of theme files.
+Example: 4.0.0-beta.2.1 should be read as "Bootstrap version 4.0.0-beta.2, theme version 1 for before mentioned Bootstrap version"
 
 ## Installation
 
@@ -26,10 +29,6 @@ Or install it yourself as:
 
     $ gem install jekyll-bootstrap
 
-## Usage
-
-TODO: Write usage instructions here. Describe your available layouts, includes, and/or sass.
-
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/llorephie/jekyll-bootstrap. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
@@ -45,4 +44,3 @@ When your theme is released, only the files in `_layouts`, `_includes`, and `_sa
 ## License
 
 The theme is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
-
