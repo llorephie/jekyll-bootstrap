@@ -24,3 +24,6 @@ theme: jekyll-bootstrap
 exclude:
   - Gemfile
   - Gemfile.lock
+
+plugins:
+ - jekyll-seo-tag
